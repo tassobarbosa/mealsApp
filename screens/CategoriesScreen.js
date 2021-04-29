@@ -1,6 +1,5 @@
 import React from 'react';
 import {Text, View, StyleSheet, Button, FlatList, TouchableOpacity} from 'react-native';
-import Colors from '../constants/Colors';
 
 import {CATEGORIES} from '../data/dummy-data';
 
@@ -35,10 +34,6 @@ const CategoriesScreen = props =>{
 
 CategoriesScreen.navigationOptions = {
     headerTitle: 'Meal Categories',
-    headerStyle:{
-        backgroundColor: Colors.primaryColor
-    },
-    headerTintColor: 'white'
 }
 
 
