@@ -13,6 +13,14 @@ import Colors from '../constants/Colors';
 import Icon from 'react-native-ionicons';
 
 
+const defaultStackNavOptions = {     
+    headerStyle:{
+        backgroundColor: Colors.primaryColor
+    },
+    headerTintColor: 'white',
+    headerTitle: 'A screen'             
+}
+
 const MealsNavigator = createStackNavigator(
     {
         Categories: {
@@ -24,14 +32,20 @@ const MealsNavigator = createStackNavigator(
         MealDetail: MealDetailScreen
     },
     {    
-        defaultNavigationOptions: {
-            headerStyle:{
-                backgroundColor: Colors.primaryColor
-            },
-            headerTintColor: 'white'
-        }
+        defaultNavigationOptions: defaultStackNavOptions
     
     }
+);
+
+const FavNavigator = createStackNavigator(
+    {
+        Favorites: FavoritesScreen,
+        MealDetail: MealDetailScreen
+    },
+    {    
+        defaultNavigationOptions: defaultStackNavOptions
+
+}
 );
 
 const MealsFavTabNavigator = createBottomTabNavigator({
@@ -40,14 +54,17 @@ const MealsFavTabNavigator = createBottomTabNavigator({
             return <Icon name='md-restaurant' size={25} color={tabInfo.tintColor} />
         }
     }},
-    Favorites: {screen: FavoritesScreen, navigationOptions:{
+    Favorites: {screen: FavNavigator, navigationOptions:{
         tabBarIcon: (tabInfo) => {
             return <Icon name='ios-star' size={25} color={tabInfo.tintColor} />
         }
     }}
 },{
     tabBarOptions:{
-        activeTintColor: Colors.secondaryColor
+        activeTintColor: Colors.secondaryColor,
+        inactiveTintColor: 'white',
+        inactiveBackgroundColor: Colors.primaryColor,
+        activeBackgroundColor: Colors.primaryColor
     }
 });
 
