@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
         margin: 15,
         height: 150,
         borderRadius: 10,
+        elevation: 5,
         overflow: 'hidden'
     },
     container:{
         flex: 1,        
         borderRadius: 10,
-        elevation: 3,
         padding: 15,
         justifyContent: 'flex-end',
         alignItems: 'flex-end'
